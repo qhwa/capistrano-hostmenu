@@ -1,7 +1,16 @@
 # capistrano-hostmenu
-A capistrano plugin which allows you to choose deploy host via a text menu.
+A capistrano plugin which allows you to choose one or more server to deploy via a text menu.
 
 Here's an example:
+
+In you deploy config:
+
+~~~ruby
+server 'example1.com', user: "#{fetch(:deploy_user)}", roles: %w{web app}
+server 'example2.com', user: "#{fetch(:deploy_user)}", roles: %w{web app}
+~~~
+
+when you run `cap deploy` or `cap deploy:start` or other deploy tasks, you will see a menu:
 
 ~~~sh
 Please choose which server(s) to deploy:
@@ -36,8 +45,8 @@ Then you will see host selecting menu any time before deploying.
 set these variables in your deploy config (commonly `deploy.rb`)
 
 ~~~ruby
-set :host_menu_prompt_msg,                'Please choose which server(s) to deploy:'.blue
 set :host_menu_default_selection,         :all # or :first, 1
+set :host_menu_prompt_msg,                'Please choose which server(s) to deploy:'.blue
 set :host_menu_caption_of_all,            'all'
 set :host_menu_caption_of_default,        '(default)'
 set :host_menu_invalid_range_msg,         'Please provide a number in (1..%d)'.red
