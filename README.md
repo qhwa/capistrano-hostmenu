@@ -20,6 +20,9 @@ Please choose which server(s) to deploy:
 Please enter host_numbers (3):
 ~~~
 
+you can answer with `1` for choosing server `example1.com`, `2` for `example2.com`,
+and `3` or `1,2` for both.
+
 ## Installation
 
 ~~~sh
