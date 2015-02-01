@@ -3,7 +3,7 @@ A capistrano plugin which allows you to choose deploy host via a text menu.
 
 Here's an example:
 
-~~~
+~~~sh
 Please choose which server(s) to deploy:
   [1] example1.com
   [2] example2.com
