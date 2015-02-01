@@ -17,17 +17,13 @@ Please enter host_numbers (3):
 gem install capistrano-hostmenu
 ~~~
 
-or put this in your `Gemfile`:
+or put this in your `Gemfile` then run `bundle install`:
 
 ~~~ruby
 gem 'capistrano-hostmenu'
 ~~~
 
-then
-
-`bundle install`
-
-put this in your `Capfile`:
+After the gem is installed, put this in your `Capfile`:
 
 ~~~ruby
 require 'capistrano/hostmenu'
