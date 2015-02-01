@@ -5,8 +5,8 @@ Here's an example:
 
 ~~~
 Please choose which server(s) to deploy:
-  [1] triton-pub-01.cm10
-  [2] triton-pub-02.cm10
+  [1] example1.com
+  [2] example2.com
   [3] all (default)
 Please enter host_numbers (3):
 ~~~
