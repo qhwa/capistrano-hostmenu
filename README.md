@@ -11,6 +11,30 @@ Please choose which server(s) to deploy:
 Please enter host_numbers (3):
 ~~~
 
+## Installation
+
+~~~sh
+gem install capistrano-hostmenu
+~~~
+
+or put this in your `Gemfile`:
+
+~~~ruby
+gem 'capistrano-hostmenu'
+~~~
+
+then
+
+`bundle install`
+
+put this in your `Capfile`:
+
+~~~ruby
+require 'capistrano/hostmenu'
+~~~
+
+Then you will see host selecting menu any time before deploying.
+
 ## Configurations
 
 set these variables in your deploy config (commonly `deploy.rb`)
