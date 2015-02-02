@@ -35,7 +35,7 @@ gem install capistrano-hostmenu
 or put this in your `Gemfile` then run `bundle install`:
 
 ~~~ruby
-gem 'capistrano-hostmenu'
+gem 'capistrano-hostmenu', require: false
 ~~~
 
 After the gem is installed, put this in your `Capfile`:
