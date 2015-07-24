@@ -2,7 +2,7 @@
 spec = Gem::Specification.new do |s| 
 
   s.name             = "capistrano-hostmenu"
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = "Capistrano plugin that prompt a text menu to choose target host."
   s.author           = "qhwa"
   s.email            = "qhwa@163.com"
