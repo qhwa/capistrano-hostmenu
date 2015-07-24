@@ -4,8 +4,8 @@ namespace :deploy do
   task :info do
     puts "--" * 50
     puts "About to deploy, check your seatbelt~"
-    puts "env:    #{fetch(:rails_env).bold.blue}"
-    puts "branch: #{fetch(:branch).bold.green}"
+    puts "env:    #{fetch(:rails_env).to_s.bold.blue}"
+    puts "branch: #{fetch(:branch).to_s.bold.green}"
     puts "server: #{roles(:all).map(&:hostname).join("\n        ").red}"
     puts "--" * 50
   end
