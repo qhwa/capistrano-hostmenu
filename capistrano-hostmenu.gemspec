@@ -17,6 +17,7 @@ spec = Gem::Specification.new do |s|
   s.require_paths << 'lib'
 
   s.add_runtime_dependency('capistrano','>= 3.0.0')
+  s.add_runtime_dependency('colored', '> 0')
 
   s.add_development_dependency("rake")
   s.add_development_dependency("rake-compiler")
