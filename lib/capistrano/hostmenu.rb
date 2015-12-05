@@ -1,3 +1,5 @@
+require 'colored'
+
 module Capistrano
 
   class Hostmenu
