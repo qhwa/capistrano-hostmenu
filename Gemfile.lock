@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    capistrano-hostmenu (0.1.1)
+    capistrano-hostmenu (0.1.2)
       capistrano (>= 3.0.0)
       colored (> 0)
 
