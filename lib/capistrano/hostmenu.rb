@@ -99,14 +99,18 @@ module Capistrano
       class Filter < Struct.new(:hosts, :role)
         def filter srv
           if Array === srv
-            srv.select {|s| filter(s)}
-          elsif not srv.roles.include?(role)
-            srv
-          elsif hosts.include? srv.hostname
-            srv
-          else
-            nil
+            return srv.select {|s| filter(s)}
           end
+
+          if role != :all and not srv.roles.include?(role)
+            return srv
+          end
+
+          if hosts.include? srv.hostname
+            return srv
+          end
+
+          return nil
         end
       end
 

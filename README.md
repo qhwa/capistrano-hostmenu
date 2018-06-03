@@ -57,4 +57,6 @@ set :host_menu_caption_of_all,            'all'
 set :host_menu_caption_of_default,        '(default)'
 set :host_menu_invalid_range_msg,         'Please provide a number in (1..%d)'.red
 set :host_menu_invalid_multi_choose_msg,  'Do you mean to choose all servers?'.red
+set :host_menu_role_to_filter,            :all
+set :host_menu_env_key,                   :rails_env
 ~~~
