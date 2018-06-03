@@ -13,6 +13,8 @@ module Capistrano
       set :host_menu_caption_of_default,        '(default)'
       set :host_menu_invalid_range_msg,         'Please provide a number in (1..%d)'.red
       set :host_menu_invalid_multi_choose_msg,  'Do you mean to choose all servers?'.red
+      set :host_menu_role_to_filter,            :all
+      set :host_menu_env_key,                   :rails_env
     end
 
     def initialize
@@ -60,7 +62,7 @@ module Capistrano
       end
 
       def deploy_hosts
-        release_roles(:all)
+        release_roles(fetch(:host_menu_role_to_filter))
       end
 
       def selection_for_all
@@ -88,9 +90,22 @@ module Capistrano
         if defined? Capistrano::Configuration::Servers::HostFilter
           set :filter, hosts: hosts
         else
-          # hack for Capistrano v3.3+
-          Capistrano::Configuration.env.send(:servers).send(:servers).select! do |srv|
-            hosts.include?(srv.hostname)
+          role = fetch(:host_menu_role_to_filter)
+          Capistrano::Configuration.env.add_filter Filter.new(hosts, role)
+        end
+      end
+
+
+      class Filter < Struct.new(:hosts, :role)
+        def filter srv
+          if Array === srv
+            srv.select {|s| filter(s)}
+          elsif not srv.roles.include?(role)
+            srv
+          elsif hosts.include? srv.hostname
+            srv
+          else
+            nil
           end
         end
       end
