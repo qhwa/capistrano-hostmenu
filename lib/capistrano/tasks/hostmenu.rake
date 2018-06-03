@@ -2,11 +2,15 @@ namespace :deploy do
 
   desc 'print environment variables'
   task :info do
+    role = fetch(:host_menu_role_to_filter)
+
     puts "--" * 50
     puts "About to deploy, check your seatbelt~"
-    puts "env:    #{fetch(:rails_env).to_s.bold.blue}"
+    puts "env:    #{fetch(fetch(:host_menu_env_key)).to_s.bold.blue}"
     puts "branch: #{fetch(:branch).to_s.bold.green}"
-    puts "server: #{roles(:all).map(&:hostname).join("\n        ").red}"
+
+    servers = Capistrano::Configuration.env.filter(roles(role))
+    puts "server: #{servers.map(&:hostname).join("\n        ").red}"
     puts "--" * 50
   end
 
